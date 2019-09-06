@@ -7,7 +7,6 @@ Created on Mon May 20 17:51:38 2019
 from urllib.request import urlopen
 import re
 import csv
-from datetime import datetime
 import pandas as pd
 from bs4 import BeautifulSoup
 
@@ -127,11 +126,9 @@ def pbp_to_df(away, home, date):
     
     df - dataframe containing the play by play data
     """
-    start = datetime.now()
-    
     quotepage = "https://www.basketball-reference.com/boxscores/pbp/{}0{}.html".format(date, home)
     page = urlopen(quotepage)
-    soup = BeautifulSoup(page)
+    soup = BeautifulSoup(page, features='lmxl')
     pbp = soup.find('table', id='pbp')
     rows = pbp.findAll('tr')
     
@@ -154,8 +151,7 @@ def pbp_to_df(away, home, date):
                    option1, player1, player2, team, score[0], score[1]]
         df.loc[event_num] = new_row
         event_num += 1
-    
-    print(datetime.now() - start)
+
     return df
 
 
@@ -170,11 +166,9 @@ def pbp_to_csv(away, home, date, path):
     date - date of the desired game (yyyymmdd)
     path - File path
     """
-    start = datetime.now()
-
     quotepage = "https://www.basketball-reference.com/boxscores/pbp/{}0{}.html".format(date, home)
     page = urlopen(quotepage)
-    soup = BeautifulSoup(page)
+    soup = BeautifulSoup(page, features='lxml')
     pbp = soup.find('table', id='pbp')
     rows = pbp.findAll('tr')
     
@@ -204,5 +198,3 @@ def pbp_to_csv(away, home, date, path):
             event_num += 1
     
     game_file.close()
-    
-    print(datetime.now() - start)
