@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
   name = 'nba_pbp_scraper',
   packages = ['nba_pbp_scraper'],
-  version = '0.1',
+  version = '0.2.1',
   license='MIT',
   description = 'Scrapes nba play by play data from basketball-reference.com',
   author = 'Jean Sebastien Darius',

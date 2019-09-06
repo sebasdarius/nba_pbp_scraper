@@ -128,7 +128,7 @@ def pbp_to_df(away, home, date):
     """
     quotepage = "https://www.basketball-reference.com/boxscores/pbp/{}0{}.html".format(date, home)
     page = urlopen(quotepage)
-    soup = BeautifulSoup(page, features='lmxl')
+    soup = BeautifulSoup(page, 'html.parser')
     pbp = soup.find('table', id='pbp')
     rows = pbp.findAll('tr')
     
@@ -168,7 +168,7 @@ def pbp_to_csv(away, home, date, path):
     """
     quotepage = "https://www.basketball-reference.com/boxscores/pbp/{}0{}.html".format(date, home)
     page = urlopen(quotepage)
-    soup = BeautifulSoup(page, features='lxml')
+    soup = BeautifulSoup(page, 'html.parser')
     pbp = soup.find('table', id='pbp')
     rows = pbp.findAll('tr')
     
