@@ -319,4 +319,8 @@ def get_season(season):
                 home = row.find('th')['csk'][-3:]
                 date = row.find('th')['csk'][:-4]
 
-                pbp_to_csv(away, home, date)
+                try:
+                    pbp_to_csv(away, home, date)
+                except:
+                    print("There was an error scraping {}{}{}".format(away, home, date))
+                

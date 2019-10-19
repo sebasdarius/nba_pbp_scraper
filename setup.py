@@ -2,13 +2,13 @@ from distutils.core import setup
 setup(
   name = 'nba_pbp_scraper',
   packages = ['nba_pbp_scraper'],
-  version = '0.2.1',
+  version = '1.0',
   license='MIT',
   description = 'Scrapes nba play by play data from basketball-reference.com',
   author = 'Jean Sebastien Darius',
   author_email = 'sebasdarius@gmail.com',
   url = 'https://github.com/sebasdarius/nba_pbp_scraper',
-  download_url = 'https://github.com/sebasdarius/nba_pbp_scraper/archive/0.1.tar.gz',
+  download_url = 'https://github.com/sebasdarius/nba_pbp_scraper/archive/1.0.tar.gz',
   keywords = ['NBA', 'Play By Play', 'basketball-reference'],
   install_requires=[
           'pandas',
